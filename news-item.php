@@ -14,7 +14,7 @@
  *
  * @wordpress-plugin
  * Plugin Name:       News Item
- * Plugin URI:        
+ * Plugin URI:
  * Description:       This plugin creates a News Item custom post type, and also creates an arhive page to display all the news items.
  * Version:           1.0.0
  * Author:            Brian Blosser
@@ -29,9 +29,51 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 function activate_news_item_plugin() {
+  // trigger our function that registers the custom post type
+  news_item_setup_post_types();
+
+  // clear the permalinks after the post type has been registered
+  flush_rewrite_rules();
 }
 register_activation_hook( __FILE__, 'activate_news_item_plugin' );
 
 function deactivate_news_item_plugin() {
+  news_item_deactivation();
 }
 register_deactivation_hook( __FILE__, 'deactivate_news_item_plugin' );
+
+function news_item_setup_post_type()
+{
+    // register the "news-item" custom post type
+    register_post_type('news-item',
+                       [
+                           'labels'      => [
+                              'name'          => __('News Items'),
+                              'singular_name' => __('News Item'),
+                              'add_new' => 'Add New',
+                              'add_new_item' => __('Add New News Item'),
+                              'edit_item' => __('Edit News Item'),
+                              'new_item' =>  __('New News Item'),
+                              'all_items' => __( 'All News Items' ),
+                           ],
+                           'description' => 'A piece of news that talks about the Divided City project.',
+                           'public'      => true,
+                           'has_archive' => true,
+                           'show_in_menu'=> true,
+                           'menu_position'=> 10,
+                           'menu-icon'=> 'dashicons-media-document',
+                           'capability-type' => 'news-item',
+                           'supports' => ['title', 'revisions', 'thumbnail'],
+                           'rewrite'     => ['slug' => 'news'],
+                       ]
+    );
+}
+add_action( 'init', 'news_item_setup_post_type' );
+
+function news_item_deactivation()
+{
+    // our post type will be automatically removed, so no need to unregister it
+
+    // clear the permalinks to remove our post type's rules
+    flush_rewrite_rules();
+}
