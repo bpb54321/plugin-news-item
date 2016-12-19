@@ -30,7 +30,7 @@ if ( ! defined( 'WPINC' ) ) {
 
 function activate_news_item_plugin() {
   // trigger our function that registers the custom post type
-  news_item_setup_post_types();
+  news_item_setup_post_type();
 
   // clear the permalinks after the post type has been registered
   flush_rewrite_rules();
@@ -76,4 +76,12 @@ function news_item_deactivation()
 
     // clear the permalinks to remove our post type's rules
     flush_rewrite_rules();
+}
+
+add_filter('template_include', 'include_news_item_template');
+function include_news_item_template( $template ) {
+  if ( is_post_type_archive('news-item') ) {
+    return plugin_dir_path( __FILE__ ) . 'archive-news-item.php';
+  }
+  return $template;
 }
