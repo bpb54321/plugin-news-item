@@ -3,3 +3,7 @@
   max-width: 30em;
   margin: auto;
 }
+
+.news-archive__link {
+  display: block;
+}

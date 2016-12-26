@@ -8,16 +8,18 @@
         <?php the_post(); ?>
         <?php
           //Get data for each news item
-          $link = get_field('link');
-          $description = get_field('description');
-          $date = get_field('date');
+          $link = htmlentities( get_field('link') );
+          $description = htmlentities( get_field('description') );
+          $date_field = get_field('date');
+          $date = DateTime::createFromFormat('Ymd', $date_field);
+          $formatted_date = $date->format('F j, Y');
         ?>
 
         <article class="news-archive__news-item">
-          <a href="<?= $link ?>" class="news-item__link">
-            <h2 class="news-archive__title"><?php the_title(); ?></h2>
+          <a href="<?= $link ?>" class="news-archive__link">
+            <h2 class="news-archive__title"><?php htmlentities( the_title() ); ?></h2>
           </a>
-          <p class="news-archive__date"><?= $date ?></p>
+          <p class="news-archive__date"><?= $formatted_date ?></p>
           <img src="" alt="" class="news-item__image">
           <p class="news-archive__description"><?= $description ?></p>
         </article>

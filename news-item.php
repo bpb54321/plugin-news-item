@@ -89,8 +89,5 @@ function include_news_item_template( $template ) {
 // Enqueue plugin custom styles and scripts
 add_action( 'wp_enqueue_scripts', 'news_item_enqueue_scripts');
 function news_item_enqueue_scripts() {
-	error_log('WE are in news_item_enqueue_scripts!');
-	$stylesheet_path = plugins_url( 'style.css', __FILE__ );
-	error_log( $stylesheet_path );
 	wp_enqueue_style( 'news-item-styles', plugins_url( 'style.css', __FILE__ ) , [], null, 'all' );
 }
