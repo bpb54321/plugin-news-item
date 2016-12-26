@@ -7,3 +7,19 @@
 .news-archive__link {
   display: block;
 }
+
+.news-archive__title {
+  margin-bottom: 8px;
+}
+
+.news-archive__date {
+  margin: 0;
+  font-size: .7em;
+  margin-bottom: .5em;
+}
+
+.news-archive__description {
+  margin: 0;
+  margin-bottom: 1em;
+  font-size: .9em;
+}
