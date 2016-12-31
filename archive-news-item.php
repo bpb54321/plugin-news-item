@@ -13,6 +13,9 @@
           $date_field = get_field('date');
           $date = DateTime::createFromFormat('Ymd', $date_field);
           $formatted_date = $date->format('F j, Y');
+          $ftd_image_id = get_post_thumbnail_id();
+          $image_size_array = get_intermediate_image_sizes();
+
         ?>
 
         <article class="news-archive__news-item">
