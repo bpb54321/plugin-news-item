@@ -36,11 +36,13 @@
               <source>
               <img src="<?php echo $image_src_array[0]; ?>" alt="News Item Featured Image" class="news-archive__image">
             </picture>
-            <a href="<?= $link ?>" class="news-archive__link">
-              <h2 class="news-archive__title"><?php htmlentities( the_title() ); ?></h2>
-            </a>
-            <p class="news-archive__date"><?= $formatted_date ?></p>
-            <p class="news-archive__description"><?= $description ?></p>
+            <div class="news-archive__article-content">
+              <a href="<?= $link ?>" class="news-archive__link">
+                <h2 class="news-archive__title"><?php htmlentities( the_title() ); ?></h2>
+              </a>
+              <p class="news-archive__date"><?= $formatted_date ?></p>
+              <p class="news-archive__description"><?= $description ?></p>
+            </div>
           </article>
 
         <?php endwhile; ?>

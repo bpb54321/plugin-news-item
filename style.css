@@ -4,6 +4,24 @@
   margin: auto;
 }
 
+.news-archive__news-item::after {
+  display: block;
+  content: '';
+  clear: both;
+}
+
+.news-archive__picture {
+  display: block;
+  width: 50%;
+  float: left;
+}
+
+.news-archive__article-content {
+  display: block;
+  width: 50%;
+  float: right;
+}
+
 .news-archive__link {
   display: block;
 }
@@ -19,6 +37,7 @@
 }
 
 .news-archive__description {
+  display: none;
   margin: 0;
   margin-bottom: 1em;
   font-size: .9em;
