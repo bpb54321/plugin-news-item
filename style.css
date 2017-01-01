@@ -20,6 +20,7 @@
   display: block;
   width: 50%;
   float: right;
+  font-size: 16px;
 }
 
 .news-archive__link {
@@ -27,13 +28,18 @@
 }
 
 .news-archive__title {
+  margin: 0;
   margin-bottom: 8px;
+  line-height: 1;
+  text-align: center;
 }
 
 .news-archive__date {
   margin: 0;
-  font-size: .7em;
   margin-bottom: .5em;
+  color: #222;
+  font-size: .8em;
+  text-align: center;
 }
 
 .news-archive__description {
