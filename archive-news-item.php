@@ -28,7 +28,8 @@
             $date = DateTime::createFromFormat('Ymd', $date_field);
             $formatted_date = $date->format('F j, Y');
             $featured_image_id = get_post_thumbnail_id();
-            $image_src_array = wp_get_attachment_image_src($featured_image_id, 'medium');
+            $image_src_array_medium = wp_get_attachment_image_src($featured_image_id, 'medium');
+            $image_src_array_medium_large = wp_get_attachment_image_src($featured_image_id, 'medium_large');
           ?>
 
           <a href="<?= $link ?>" class="news-archive__link">
@@ -38,8 +39,8 @@
                 <p class="news-archive__date"><?= $formatted_date ?></p>
               </div>
               <picture class="news-archive__picture">
-                <source>
-                <img src="<?php echo $image_src_array[0]; ?>" alt="News Item Featured Image" class="news-archive__image">
+                <source media="(min-width: 600px)" srcset="<?php echo $image_src_array_medium_large[0]; ?>">
+                <img src="<?php echo $image_src_array_medium[0]; ?>" alt="News Item Featured Image" class="news-archive__image">
               </picture>
               <p class="news-archive__description"><?= $description ?></p>
             </article>
