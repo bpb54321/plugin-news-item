@@ -33,15 +33,15 @@
 
           <a href="<?= $link ?>" class="news-archive__link">
             <article class="news-archive__news-item">
+              <div class="news-archive__title-and-date">
+                <h2 class="news-archive__title"><?php htmlentities( the_title() ); ?></h2>
+                <p class="news-archive__date"><?= $formatted_date ?></p>
+              </div>
               <picture class="news-archive__picture">
                 <source>
                 <img src="<?php echo $image_src_array[0]; ?>" alt="News Item Featured Image" class="news-archive__image">
               </picture>
-              <div class="news-archive__article-content">
-                  <h2 class="news-archive__title"><?php htmlentities( the_title() ); ?></h2>
-                <p class="news-archive__date"><?= $formatted_date ?></p>
-                <p class="news-archive__description"><?= $description ?></p>
-              </div>
+              <p class="news-archive__description"><?= $description ?></p>
             </article>
           </a>
 
