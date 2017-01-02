@@ -1,17 +1,6 @@
 <?php get_header(); ?>
 <?php
-  function get_image_sizes_and_widths() {
-    $image_size_array = get_intermediate_image_sizes();
-    $image_sizes_and_widths = [];
-    foreach ($image_size_array as $image_size) {
-      $single_width_and_size = [
-        'name' => 'medium',
-        'width' => 500,
-      ];
-      $image_sizes_and_widths[] = $single_width_and_size;
-    }
-    return $image_sizes_and_widths;
-  }
+  
 ?>
 <div id="fixed-layout-content-area">
   <div class="scrollable">
