@@ -1,16 +1,29 @@
 <?php get_header(); ?>
 <?php
-  
+
+  // WP_Query arguments
+  // Sort by the date of publication meta value as a numerical value
+  $args = array(
+  	'post_type'              => array( 'news-item' ),
+  	'post_status'            => array( 'publish' ),
+    'meta_key' => 'date',
+    'orderby' => 'meta_value_num',
+    'order' => 'DESC'
+  );
+
+  // The Query
+  $news_item_query = new WP_Query( $args );
+
 ?>
 <div id="fixed-layout-content-area">
   <div class="scrollable">
     <div class="news-archive">
       <h1>NEWS</h1>
-      <?php if ( have_posts() ) : ?>
-        <?php while ( have_posts() ) : ?>
-          <?php the_post(); ?>
+      <?php if ( $news_item_query->have_posts() ) : ?>
+        <?php while ( $news_item_query->have_posts() ) : ?>
+          <?php $news_item_query->the_post(); ?>
           <?php
-            //Get data for each news item
+            // Get data for each news item
             $link = htmlentities( get_field('link') );
             $description = htmlentities( get_field('description') );
             $date_field = get_field('date');
@@ -42,4 +55,5 @@
     </div>
   </div>
 </div>
+<?php wp_reset_postdata(); ?>
 <?php get_footer(); ?>
