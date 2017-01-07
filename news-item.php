@@ -46,8 +46,8 @@ function news_item_setup_post_type()
 {
     // register the "news-item" custom post type
     register_post_type('news-item',
-                       [
-                           'labels'      => [
+                       array(
+                           'labels'      => array(
                               'name'          => __('News Items'),
                               'singular_name' => __('News Item'),
                               'add_new' => 'Add New',
@@ -55,7 +55,7 @@ function news_item_setup_post_type()
                               'edit_item' => __('Edit News Item'),
                               'new_item' =>  __('New News Item'),
                               'all_items' => __( 'All News Items' ),
-                           ],
+                           ),
                            'description' => 'A piece of news that talks about the Divided City project.',
                            'public'      => true,
                            'has_archive' => true,
@@ -63,9 +63,9 @@ function news_item_setup_post_type()
                            'menu_position'=> 10,
                            'menu-icon'=> 'dashicons-media-document',
                            'capability-type' => 'news-item',
-                           'supports' => ['title', 'revisions', 'thumbnail'],
-                           'rewrite'     => ['slug' => 'news'],
-                       ]
+                           'supports' => array('title', 'revisions', 'thumbnail'),
+                           'rewrite'     => array('slug' => 'news'),
+                       )
     );
 }
 add_action( 'init', 'news_item_setup_post_type' );
@@ -89,5 +89,5 @@ function include_news_item_template( $template ) {
 // Enqueue plugin custom styles and scripts
 add_action( 'wp_enqueue_scripts', 'news_item_enqueue_scripts');
 function news_item_enqueue_scripts() {
-	wp_enqueue_style( 'news-item-styles', plugins_url( 'style.css', __FILE__ ) , [], null, 'all' );
+	wp_enqueue_style( 'news-item-styles', plugins_url( 'style.css', __FILE__ ) , array(), null, 'all' );
 }
