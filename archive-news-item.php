@@ -25,7 +25,7 @@
           <?php
             // Get data for each news item
             $link = htmlentities( get_field('link') );
-            $description = htmlentities( get_field('description') );
+            $description = get_field('description');
             $date_field = get_field('date');
             $date = DateTime::createFromFormat('Ymd', $date_field);
             $formatted_date = $date->format('F j, Y');
