@@ -34,7 +34,7 @@
             $image_src_array_medium_large = wp_get_attachment_image_src($featured_image_id, 'medium_large');
           ?>
 
-          <a href="<?= $link ?>" class="news-archive__link">
+          <a href="<?= $link ?>" class="news-archive__link" target="_blank">
             <article class="news-archive__news-item">
               <div class="news-archive__title-and-date">
                 <h2 class="news-archive__title"><?php htmlentities( the_title() ); ?></h2>
