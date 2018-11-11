@@ -31,17 +31,20 @@
   text-align: center;
 }
 
-.news-archive__link:hover {
-  text-decoration: underline !important;
-  color: #222 !important;
-}
-
 .news-archive__title {
   margin: 0;
   margin-bottom: 8px;
   line-height: 1;
   color: #222;
   font-size: 16px;
+}
+
+.news-archive__link {
+  color: inherit !important;
+}
+
+.news-archive__link:hover {
+  text-decoration: underline !important;
 }
 
 .news-archive__date {
