@@ -32,8 +32,8 @@
 }
 
 .news-archive__link:hover {
-  text-decoration: underline;
-  color: #222;
+  text-decoration: underline !important;
+  color: #222 !important;
 }
 
 .news-archive__title {

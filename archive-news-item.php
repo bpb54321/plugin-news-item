@@ -30,20 +30,19 @@
             $date = DateTime::createFromFormat('Ymd', $date_field);
             $formatted_date = $date->format('F j, Y');
             $featured_image_id = get_post_thumbnail_id();
+            $featured_image_alt = get_post_meta( $featured_image_id, '_wp_attachment_image_alt', true );
             $image_src_array_medium = wp_get_attachment_image_src($featured_image_id, 'medium');
             $image_src_array_medium_large = wp_get_attachment_image_src($featured_image_id, 'medium_large');
           ?>
 
           <article class="news-archive__news-item">
             <div class="news-archive__title-and-date">
-              <a class="news-archive__link" href="<?php echo $link; ?>">
-                <h2 class="news-archive__title"><?php htmlentities( the_title() ); ?></h2>
-              </a>
+              <h2 class="news-archive__title"><a class="news-archive__link" href="<?php echo $link; ?>"><?php htmlentities( the_title() ); ?></a></h2>
               <p class="news-archive__date"><?= $formatted_date ?></p>
             </div>
             <picture class="news-archive__picture">
               <source media="(min-width: 600px)" srcset="<?php echo $image_src_array_medium_large[0]; ?>">
-              <img src="<?php echo $image_src_array_medium[0]; ?>" alt="News Item Featured Image" class="news-archive__image">
+              <img src="<?php echo $image_src_array_medium[0]; ?>" alt="<?php echo $featured_image_alt; ?>" class="news-archive__image">
             </picture>
             <p class="news-archive__description"><?= $description ?></p>
           </article>
