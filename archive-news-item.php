@@ -8,7 +8,9 @@
   	'post_status'            => array( 'publish' ),
     'meta_key' => 'date',
     'orderby' => 'meta_value_num',
-    'order' => 'DESC'
+    'order' => 'DESC',
+    // Do not page results, that is, show all query results no matter how many.
+    'nopaging' => true,
   );
 
   // The Query
