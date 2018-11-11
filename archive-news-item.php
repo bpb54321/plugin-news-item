@@ -36,7 +36,7 @@
 
           <article class="news-archive__news-item">
             <div class="news-archive__title-and-date">
-              <a href="<?php echo $link; ?>">
+              <a class="news-archive__link" href="<?php echo $link; ?>">
                 <h2 class="news-archive__title"><?php htmlentities( the_title() ); ?></h2>
               </a>
               <p class="news-archive__date"><?= $formatted_date ?></p>

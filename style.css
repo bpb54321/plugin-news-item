@@ -31,6 +31,11 @@
   text-align: center;
 }
 
+.news-archive__link:hover {
+  text-decoration: underline;
+  color: #222;
+}
+
 .news-archive__title {
   margin: 0;
   margin-bottom: 8px;
