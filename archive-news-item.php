@@ -34,19 +34,19 @@
             $image_src_array_medium_large = wp_get_attachment_image_src($featured_image_id, 'medium_large');
           ?>
 
-          <a href="<?= $link ?>" class="news-archive__link" target="_blank">
-            <article class="news-archive__news-item">
-              <div class="news-archive__title-and-date">
+          <article class="news-archive__news-item">
+            <div class="news-archive__title-and-date">
+              <a href="<?php echo $link; ?>">
                 <h2 class="news-archive__title"><?php htmlentities( the_title() ); ?></h2>
-                <p class="news-archive__date"><?= $formatted_date ?></p>
-              </div>
-              <picture class="news-archive__picture">
-                <source media="(min-width: 600px)" srcset="<?php echo $image_src_array_medium_large[0]; ?>">
-                <img src="<?php echo $image_src_array_medium[0]; ?>" alt="News Item Featured Image" class="news-archive__image">
-              </picture>
-              <p class="news-archive__description"><?= $description ?></p>
-            </article>
-          </a>
+              </a>
+              <p class="news-archive__date"><?= $formatted_date ?></p>
+            </div>
+            <picture class="news-archive__picture">
+              <source media="(min-width: 600px)" srcset="<?php echo $image_src_array_medium_large[0]; ?>">
+              <img src="<?php echo $image_src_array_medium[0]; ?>" alt="News Item Featured Image" class="news-archive__image">
+            </picture>
+            <p class="news-archive__description"><?= $description ?></p>
+          </article>
 
         <?php endwhile; ?>
       <?php else : ?>
